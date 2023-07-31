@@ -27,9 +27,10 @@ body * + * {
 
 .site-nav {
   display: flex;
-  padding-left: 0;
+  padding: 0.5em; /* 给链接外的菜单容器添加内边距 */
   list-style-type: none;
   background-color: #5f4b44;
+  border-radius: 0.2em;
 }
 
 /* 直接后代选择器 */
@@ -38,7 +39,17 @@ body * + * {
 }
 
 .site-nav > li > a {
+  display: block; /* 让链接称为块级元素，这样就能撑开父元素的高度 */
+  padding: 0.5em 1em; /* 给链接添加内边距 */
   background-color: #cc6b5a;
   color: white;
   text-decoration: none;
+}
+
+.site-nav > li + li {
+  margin-left: 1.5em; /* 选中所有前面有列表项的列表项（也就是说除了第一项之外的所有列表） */
+}
+
+.site-nav > .nav-right {
+  margin-left: auto; /* 弹性盒子内的 auto 外边距会填充所有可用空间 */
 }
